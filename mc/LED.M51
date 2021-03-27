@@ -1,0 +1,140 @@
+BL51 BANKED LINKER/LOCATER V6.02                                                        01/05/2021  15:12:06  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.02, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE roll.obj TO LED RAMSIZE (256) CODE (0X8000-0XFFFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  roll.obj (ROLL)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SLCMP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  LED (ROLL)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0015H     UNIT         ?DT?ROLL
+            DATA    001DH     0008H     UNIT         _DATA_GROUP_
+            IDATA   0025H     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+                    0000H     E801H                  *** GAP ***
+            XDATA   E801H     0001H     ABSOLUTE     
+            XDATA   E802H     0001H     ABSOLUTE     
+            XDATA   E803H     0001H     ABSOLUTE     
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     7FFDH                  *** GAP ***
+            CODE    8000H     008CH     UNIT         ?C_C51STARTUP
+            CODE    808CH     006EH     UNIT         ?PR?MAIN?ROLL
+            CODE    80FAH     003AH     UNIT         ?PR?DELAY?ROLL
+            CODE    8134H     0017H     UNIT         ?C_INITSEG
+            CODE    814BH     0016H     UNIT         ?C?LIB_CODE
+
+
+
+OVERLAY MAP OF MODULE:   LED (ROLL)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?ROLL
+  +--> ?C_INITSEG
+
+?PR?MAIN?ROLL                  001DH    0004H
+  +--> ?PR?DELAY?ROLL
+
+?PR?DELAY?ROLL                 0021H    0004H
+
+BL51 BANKED LINKER/LOCATER V6.02                                                      01/05/2021  15:12:06  PAGE 2
+
+
+
+
+SYMBOL TABLE OF MODULE:  LED (ROLL)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ROLL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  X:E801H         PUBLIC        portB
+  X:E802H         PUBLIC        portC
+  C:80FAH         PUBLIC        delay
+  C:808CH         PUBLIC        main
+  D:0008H         PUBLIC        port
+  X:E803H         PUBLIC        CommW
+  D:001CH         PUBLIC        i
+  -------         PROC          DELAY
+  -------         DO            
+  D:0021H         SYMBOL        u
+  -------         ENDDO         
+  C:80FAH         LINE#         8
+  C:80FAH         LINE#         9
+  C:80FAH         LINE#         11
+  C:8133H         LINE#         12
+  -------         ENDPROC       DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:001DH         SYMBOL        d
+  D:0006H         SYMBOL        b
+  D:0004H         SYMBOL        j
+  D:001FH         SYMBOL        m
+  D:0001H         SYMBOL        k
+  -------         ENDDO         
+  C:808CH         LINE#         13
+  C:808CH         LINE#         14
+  C:808CH         LINE#         17
+  C:8092H         LINE#         19
+  C:8092H         LINE#         21
+  C:8095H         LINE#         22
+  C:8099H         LINE#         23
+  C:8099H         LINE#         24
+  C:809CH         LINE#         25
+  C:809CH         LINE#         26
+  C:80A6H         LINE#         28
+  C:80A9H         LINE#         29
+  C:80A9H         LINE#         30
+  C:80AFH         LINE#         31
+  C:80B2H         LINE#         32
+  C:80B2H         LINE#         33
+  C:80B8H         LINE#         34
+  C:80BBH         LINE#         36
+  C:80BEH         LINE#         37
+  C:80BEH         LINE#         38
+  C:80C4H         LINE#         39
+  C:80C6H         LINE#         40
+  C:80C8H         LINE#         41
+  C:80CCH         LINE#         42
+BL51 BANKED LINKER/LOCATER V6.02                                                      01/05/2021  15:12:06  PAGE 3
+
+
+  C:80D7H         LINE#         43
+  C:80E2H         LINE#         44
+  C:80E5H         LINE#         45
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        ROLL
+
+  -------         MODULE        ?C?SLCMP
+  C:814BH         PUBLIC        ?C?SLCMP
+  -------         ENDMOD        ?C?SLCMP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00BEH BYTE ( 9%) *
+******************************************************************************
+
+Program Size: data=38.0 xdata=3 code=356
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
