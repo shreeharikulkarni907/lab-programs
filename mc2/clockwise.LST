@@ -1,0 +1,55 @@
+C51 COMPILER V8.05a   CLOCKWISE                                                            01/06/2021 16:16:21 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE CLOCKWISE
+OBJECT MODULE PLACED IN clockwise.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE clockwise.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<stdio.h>
+   2          #include<reg51.h>
+   3          char xdata port _at_ 0xe803;
+   4          char xdata porta _at_ 0xe800;
+   5          char idata acc _at_ 0x30;
+   6          delay() //DELAY BETWEEN THE ROTATION OF THE STEPPER MOTOR
+   7          {
+   8   1      int j;
+   9   1      for(j = 0;j<800; j++)
+  10   1      {
+  11   2              
+  12   2      }
+  13   1      }
+  14          void main()
+  15          {
+  16   1      port = 0x80; //CONFIGURE ALL THE PORTS OF 8255 AS OUTPUT PORT
+  17   1      while(1)
+  18   1      {
+  19   2      acc = 0x88;
+  20   2      porta = acc;
+  21   2      delay();
+  22   2      acc = 0x44;
+  23   2      porta = acc;
+  24   2      delay();
+  25   2      acc = 0x22;
+  26   2      porta = acc;
+  27   2      delay();
+  28   2      acc = 0x11;
+  29   2      porta = acc;
+  30   2      delay();
+  31   2      }
+  32   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     60    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

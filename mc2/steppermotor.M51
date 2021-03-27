@@ -1,0 +1,110 @@
+BL51 BANKED LINKER/LOCATER V6.02                                                        01/06/2021  16:16:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.02, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE clockwise.obj TO steppermotor RAMSIZE (256) CODE (0X8000-0XFFFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  clockwise.obj (CLOCKWISE)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  steppermotor (CLOCKWISE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+                    0008H     0028H                  *** GAP ***
+            IDATA   0030H     0001H     ABSOLUTE     
+            IDATA   0031H     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+                    0000H     E800H                  *** GAP ***
+            XDATA   E800H     0001H     ABSOLUTE     
+                    E801H     0002H                  *** GAP ***
+            XDATA   E803H     0001H     ABSOLUTE     
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     7FFDH                  *** GAP ***
+            CODE    8000H     002DH     UNIT         ?PR?MAIN?CLOCKWISE
+            CODE    802DH     000FH     UNIT         ?PR?DELAY?CLOCKWISE
+            CODE    803CH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   steppermotor (CLOCKWISE)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?CLOCKWISE
+
+?PR?MAIN?CLOCKWISE
+  +--> ?PR?DELAY?CLOCKWISE
+
+
+
+SYMBOL TABLE OF MODULE:  steppermotor (CLOCKWISE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.02                                                      01/06/2021  16:16:21  PAGE 2
+
+
+  -------         MODULE        CLOCKWISE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:802DH         PUBLIC        delay
+  C:8000H         PUBLIC        main
+  I:0030H         PUBLIC        acc
+  X:E800H         PUBLIC        porta
+  X:E803H         PUBLIC        port
+  -------         PROC          DELAY
+  -------         DO            
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:802DH         LINE#         6
+  C:802DH         LINE#         7
+  C:802DH         LINE#         9
+  C:8030H         LINE#         10
+  C:8030H         LINE#         12
+  C:803BH         LINE#         13
+  -------         ENDPROC       DELAY
+  -------         PROC          MAIN
+  C:8000H         LINE#         14
+  C:8000H         LINE#         15
+  C:8000H         LINE#         16
+  C:8006H         LINE#         17
+  C:8006H         LINE#         18
+  C:8006H         LINE#         19
+  C:800AH         LINE#         20
+  C:8010H         LINE#         21
+  C:8013H         LINE#         22
+  C:8015H         LINE#         23
+  C:8018H         LINE#         24
+  C:801BH         LINE#         25
+  C:801DH         LINE#         26
+  C:8020H         LINE#         27
+  C:8023H         LINE#         28
+  C:8025H         LINE#         29
+  C:8028H         LINE#         30
+  C:802BH         LINE#         31
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        CLOCKWISE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 003CH BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=10.0 xdata=2 code=75
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
