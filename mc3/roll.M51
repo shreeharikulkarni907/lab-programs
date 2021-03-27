@@ -1,0 +1,141 @@
+BL51 BANKED LINKER/LOCATER V6.02                                                        01/06/2021  16:41:37  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.02, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE bnglore.obj TO roll RAMSIZE (256) CODE (0X8000-0XFFFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  bnglore.obj (BNGLORE)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SLCMP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  roll (BNGLORE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0014H     UNIT         ?DT?BNGLORE
+            DATA    001CH     000CH     UNIT         _DATA_GROUP_
+            IDATA   0028H     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+                    0000H     E801H                  *** GAP ***
+            XDATA   E801H     0001H     ABSOLUTE     
+            XDATA   E802H     0001H     ABSOLUTE     
+            XDATA   E803H     0001H     ABSOLUTE     
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     7FFDH                  *** GAP ***
+            CODE    8000H     008CH     UNIT         ?C_C51STARTUP
+            CODE    808CH     0086H     UNIT         ?PR?MAIN?BNGLORE
+            CODE    8112H     003AH     UNIT         ?PR?DELAY?BNGLORE
+            CODE    814CH     0017H     UNIT         ?C_INITSEG
+            CODE    8163H     0016H     UNIT         ?C?LIB_CODE
+
+
+
+OVERLAY MAP OF MODULE:   roll (BNGLORE)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?BNGLORE
+  +--> ?C_INITSEG
+
+?PR?MAIN?BNGLORE               001CH    0008H
+  +--> ?PR?DELAY?BNGLORE
+
+?PR?DELAY?BNGLORE              0024H    0004H
+
+BL51 BANKED LINKER/LOCATER V6.02                                                      01/06/2021  16:41:37  PAGE 2
+
+
+
+
+SYMBOL TABLE OF MODULE:  roll (BNGLORE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BNGLORE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  X:E801H         PUBLIC        portB
+  X:E802H         PUBLIC        portC
+  C:8112H         PUBLIC        delay
+  C:808CH         PUBLIC        main
+  D:0008H         PUBLIC        port
+  X:E803H         PUBLIC        CommW
+  -------         PROC          DELAY
+  -------         DO            
+  D:0024H         SYMBOL        u
+  -------         ENDDO         
+  C:8112H         LINE#         8
+  C:8112H         LINE#         9
+  C:8112H         LINE#         11
+  C:8130H         LINE#         12
+  C:8130H         LINE#         14
+  C:814BH         LINE#         15
+  -------         ENDPROC       DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:001CH         SYMBOL        d
+  D:001EH         SYMBOL        b
+  D:0004H         SYMBOL        j
+  D:0020H         SYMBOL        m
+  D:0022H         SYMBOL        i
+  D:0007H         SYMBOL        k
+  -------         ENDDO         
+  C:808CH         LINE#         16
+  C:808CH         LINE#         17
+  C:808CH         LINE#         20
+  C:8092H         LINE#         22
+  C:8092H         LINE#         23
+  C:8097H         LINE#         24
+  C:809BH         LINE#         25
+  C:809BH         LINE#         26
+  C:80AEH         LINE#         27
+  C:80AEH         LINE#         28
+  C:80B1H         LINE#         29
+  C:80BFH         LINE#         30
+  C:80C2H         LINE#         31
+  C:80C2H         LINE#         32
+  C:80C8H         LINE#         33
+  C:80CBH         LINE#         34
+  C:80D1H         LINE#         35
+  C:80D4H         LINE#         37
+  C:80D7H         LINE#         38
+  C:80DDH         LINE#         39
+  C:80DFH         LINE#         40
+  C:80E1H         LINE#         41
+BL51 BANKED LINKER/LOCATER V6.02                                                      01/06/2021  16:41:37  PAGE 3
+
+
+  C:80E5H         LINE#         42
+  C:80F0H         LINE#         43
+  C:80FAH         LINE#         44
+  C:80FDH         LINE#         45
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BNGLORE
+
+  -------         MODULE        ?C?SLCMP
+  C:8163H         PUBLIC        ?C?SLCMP
+  -------         ENDMOD        ?C?SLCMP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00D6H BYTE (10%) *
+******************************************************************************
+
+Program Size: data=41.0 xdata=3 code=380
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

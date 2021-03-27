@@ -1,0 +1,72 @@
+C51 COMPILER V8.05a   BNGLORE                                                              01/06/2021 16:41:36 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE BNGLORE
+OBJECT MODULE PLACED IN bnglore.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE bnglore.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<stdio.h>
+   2          #include<reg51.h>
+   3          
+   4          char xdata CommW _at_ 0xe803;
+   5          char xdata portB _at_ 0xe801;
+   6          char xdata portC _at_ 0xe802;
+   7          char port[20]={0xff,0xff,0xff,0xff,0x83,0x88,0xc8,0x82,0x88,0xc7,0xc0,0xaf,0x86};
+   8          void delay()
+   9          {
+  10   1          long u;
+  11   1              for(u=0;u<8000;u++)
+  12   1              {
+  13   2      
+  14   2              }
+  15   1      }
+  16          void main()
+  17          {
+  18   1              int d,b,j,m,i;
+  19   1              unsigned char k;
+  20   1              CommW=0x80;
+  21   1              do
+  22   1              {
+  23   2                       i=0;
+  24   2                      for(d=0;d<1;d++)
+  25   2                      {
+  26   3                              for(b=13;i>0;i--)
+  27   3                              {
+  28   4                                      delay();
+  29   4                                      k=port[i++];
+  30   4                                      for(j=0;j<9;j++)
+  31   4                                      {
+  32   5                                              m=k;
+  33   5                                              k=k&0x80;
+  34   5                                              if(k==0)
+  35   5                                                      portB=0x00;
+  36   5                                              else
+  37   5                                                      portB=0x01;
+  38   5                                              portC=0x01;
+  39   5                                              portC=0x00;
+  40   5                                              k=m;
+  41   5                                              k<<=1;
+  42   5                                      }
+  43   4                              }
+  44   3                              delay();
+  45   3                      }
+  46   2              }while(1);
+  47   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    192    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     20      12
+C51 COMPILER V8.05a   BNGLORE                                                              01/06/2021 16:41:36 PAGE 2   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,4 @@
+"bnglore.obj" 
+TO "roll" 
+RAMSIZE(256) 
+CODE( 0X8000-0XFFFF )
