@@ -1,0 +1,5 @@
+".\Objects\roll.obj" 
+TO ".\Objects\bnglore" 
+
+PRINT(".\Listings\bnglore.map") CLASSES (CODE (C:0x8000-C:0xFFFF), CONST (C:0x8000-C:0xFFFF), 
+ECODE (C:0x8000-C:0xFFFF), HCONST (C:0x8000-C:0xFFFF)) 
